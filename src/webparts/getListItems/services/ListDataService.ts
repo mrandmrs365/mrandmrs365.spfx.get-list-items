@@ -14,7 +14,7 @@ export default class ListDataService {
     this.listTitle = listTitle;
   }
 
-  public async getData(url: string, httpGetOptions: ISPHttpClientOptions): Promise<any> {
+  private async getData(url: string, httpGetOptions: ISPHttpClientOptions): Promise<any> {
     const response = await this.spHttpClient.get(url, SPHttpClient.configurations.v1, httpGetOptions);
     const responseJson: any = await response.json();
     let result = {};
@@ -35,7 +35,7 @@ export default class ListDataService {
 
     const fields: string[] = ['GUID', 'Id', 'Title'];
     const select: string = Text.format('$select={0}', fields.join(','));
-    let endpoint: string = Text.format('{0}/_api/web/lists/getbytitle(\'{1}\')/items?{2}', this.webUrl, this.listTitle, select);
+    let endpoint: string = Text.format('{0}/_api/web/lists/getbytitle(\'{1}\')/items?{2}&$top=1000', this.webUrl, this.listTitle, select);
 
     const httpGetOptions: ISPHttpClientOptions = {
       headers: {

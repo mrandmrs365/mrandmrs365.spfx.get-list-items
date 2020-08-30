@@ -13,7 +13,7 @@ export default class ListDataServiceMock {
     }
   }
 
-  public async getData(url: string, httpGetOptions: ISPHttpClientOptions): Promise<any[]> {
+  private async getData(url: string, httpGetOptions: ISPHttpClientOptions): Promise<any[]> {
     return new Promise<IListItem[]>((resolve) => {
       resolve(this.mockItems);
     });

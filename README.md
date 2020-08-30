@@ -1,6 +1,8 @@
 ## get-list-items
 
-This is where you include your WebPart documentation.
+Simple demo of how to get all list items with REST api.
+
+Guide available @ https://mrandmrs365.com/spfx-get-all-list-items-with-rest
 
 ### Building the code
 
